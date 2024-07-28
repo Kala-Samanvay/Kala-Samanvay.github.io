@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function initializeFilters(teachers) {
     const locationDropdown = document.getElementById('location');
-    const uniqueLocations = new Set(['virtual']); // Add 'virtual' by default
+    const uniqueLocations = new Set(['Virtual']); // Add 'virtual' by default
     teachers.forEach(teacher => {
         teacher.locations.forEach(location => uniqueLocations.add(location));
     });
