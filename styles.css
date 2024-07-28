@@ -87,41 +87,109 @@ main {
     border-radius: 5px;
 }
 
-/* Ensure popup is centered */
 .popup {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 80%; /* Could be more or less, depending on screen size */
-    max-width: 500px;
-    background-color: white;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    padding: 20px;
-    border-radius: 10px;
-    text-align: left;
-}
-
-.popup-content {
-    display: flex;
-    flex-direction: column;
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
     align-items: center;
 }
 
-.close, .back-arrow {
-    cursor: pointer;
-    align-self: flex-end;
-    font-size: 20px;
+.popup-content {
+    background-color: #fff;
+    padding: 60px 20px 20px; /* Increased top padding for more space */
+    border-radius: 5px;
+    text-align: center;
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+    overflow: auto;
 }
 
-#teacher-photo {
+.popup-content img {
     max-width: 100%;
+    max-height: 300px;
     height: auto;
-    margin-bottom: 20px;
+    margin: 0 auto 20px; /* Center the image and add space below */
+    display: block;
+    border-radius: 5px;
 }
 
-#teacher-info p {
-    margin: 5px 0;
+.popup-content .close, .popup-content .back-arrow {
+    position: absolute;
+    font-size: 20px; /* Adjust font size as needed */
+    cursor: pointer;
+    z-index: 10;
+}
+
+.popup-content .close {
+    top: 20px;
+    right: 20px;
+}
+
+.popup-content .back-arrow {
+    top: 20px;
+    left: 20px;
+}
+
+/* Container for displaying multiple teacher entries */
+.results {
+    display: flex;
+    flex-wrap: wrap; /* Allow entries to wrap to the next line */
+    gap: 20px; /* Space between teacher entries */
+    justify-content: center; /* Center the entries horizontally */
+}
+
+/* Container for each teacher entry */
+.teacher {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items horizontally */
+    margin: 20px; /* Space around each teacher entry */
+    text-align: center; /* Center text in the container */
+    border: 1px solid #ccc; /* Optional: Add a border around each entry */
+    padding: 10px; /* Padding inside the entry */
+    border-radius: 8px; /* Optional: Round corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow */
+    background-color: #fff; /* Background color for each entry */
+}
+
+/* Style for the teacher photo */
+.teacher img {
+    width: 100px; /* Adjust size as needed */
+    height: 100px; /* Adjust size as needed */
+    object-fit: cover; /* Ensure the photo fits well */
+    border-radius: 50%; /* Optional: Make the photo circular */
+    margin-bottom: 10px; /* Space between photo and button */
+}
+
+/* Style for the "View Details" button */
+.teacher button {
+    background: linear-gradient(135deg, #77162B, #6f0f20, #551016); /* Gradient with shades of #77162B */
+    color: #EE9C26; /* Text color */
+    border: none;
+    padding: 6px 12px; /* Smaller padding for a compact button */
+    font-size: 14px; /* Font size for readability */
+    font-family: 'Arial', sans-serif; /* Font family */
+    border-radius: 4px; /* Smaller border radius */
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease; /* Smooth transition for background and transform */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+}
+
+/* Hover and active states for the button */
+.teacher button:hover {
+    background: linear-gradient(135deg, #77162B, #6f0f20); /* Slightly adjusted gradient on hover */
+    color: #EE9C26; /* Text color remains the same */
+    transform: translateY(-2px); /* Lift the button slightly on hover */
+}
+
+.teacher button:active {
+    background: linear-gradient(135deg, #77162B, #551016); /* Darker gradient on click */
+    color: #EE9C26; /* Text color remains the same */
+    transform: translateY(1px); /* Slightly lower the button on click */
 }
