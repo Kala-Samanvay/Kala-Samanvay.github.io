@@ -43,10 +43,10 @@ function setupSearchButton(teachers) {
             const matchesMode = modeOfTeaching === 'both' || teacherMode === modeOfTeaching || teacherMode === 'both';
 
             const teacherLocations = teacher.locations.map(loc => loc.toLowerCase());
-            const matchesLocation = location === 'both' || location === 'virtual' && teacherMode !== 'offline' || teacherLocations.includes(location);
+            const matchesLocation = location === 'both' || (location === 'virtual' && teacherMode !== 'offline') || teacherLocations.includes(location);
 
             const teacherArt = teacher.art.toLowerCase();
-            const matchesArt = art === 'both' || art === teacherArt;
+            const matchesArt = art === 'all' || art === teacherArt;
 
             return matchesMode && matchesLocation && matchesArt;
         });
@@ -94,9 +94,9 @@ function showTeacherDetails(teacher) {
     
     teacherPhoto.src = teacher.photo;
     teacherInfo.textContent = `Name: ${teacher.name}\nMode: ${teacher.mode}\nLocations: ${teacher.locations.join(', ')}\nArt: ${teacher.art}`;
-    contactLink.href = teacher.contact;
+    contactLink.href = `https://wa.me/${teacher.contact}`;
     
-    popup.style.display = 'block';
+    popup.style.display = 'flex'; // Changed from 'block' to 'flex' to align with CSS
 }
 
 document.querySelector('.popup .close').addEventListener('click', () => {
