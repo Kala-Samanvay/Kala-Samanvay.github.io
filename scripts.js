@@ -1,11 +1,18 @@
 document.addEventListener('DOMContentLoaded', function() {
     fetch('teachers.json')
-    .then(response => response.json())
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.text();  // Read response as text
+    })
+    .then(text => {
+        console.log("Raw JSON Text:", text);  // Log the raw text to the console
+        return JSON.parse(text);  // Parse the text as JSON
+    })
     .then(teachers => {
-        // Populate location options
-            const locationSet = new Set();
-            teachers.forEach(teacher => {
-                teacher.locations.forEach(location => locationSet.add(location));
+        console.log("Parsed JSON Data:", teachers);  // Log the parsed JSON data to the console
+        // Your existing code to process teachers data
     })
     .catch(error => console.error('Error fetching teachers:', error));
 
