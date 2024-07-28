@@ -4,10 +4,10 @@ document.addEventListener("DOMContentLoaded", function () {
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
-            return response.json();  // Parse response as JSON directly
+            return response.json();
         })
         .then(data => {
-            console.log("Fetched JSON Data:", data);  // Log the fetched JSON data
+            console.log("Fetched JSON Data:", data);
             if (!Array.isArray(data)) {
                 throw new Error('Parsed JSON is not an array');
             }
