@@ -1,12 +1,13 @@
 document.addEventListener('DOMContentLoaded', function() {
     fetch('teachers.json')
-        .then(response => response.json())
-        .then(teachers => {
-            // Populate location options
+    .then(response => response.json())
+    .then(teachers => {
+        // Populate location options
             const locationSet = new Set();
             teachers.forEach(teacher => {
                 teacher.locations.forEach(location => locationSet.add(location));
-            });
+    })
+    .catch(error => console.error('Error fetching teachers:', error));
 
             const locationSelect = document.getElementById('location');
             locationSet.forEach(location => {
