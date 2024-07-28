@@ -14,6 +14,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
             initializeFilters(data);
             setupSearchButton(data);
+            // Initialize Select2 for the location dropdown
+            $('#location').select2({
+                placeholder: 'Select or type a location',
+                allowClear: true
+            });
         })
         .catch(error => console.error('Error fetching teachers:', error));
 });
