@@ -14,11 +14,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
             initializeFilters(data);
             setupSearchButton(data);
-            // Initialize Select2 for the location dropdown
-            $('#location').select2({
-                placeholder: 'Select or type a location',
-                allowClear: true
-            });
+
+            // Initialize Select2
+            $('.location-select').select2();
         })
         .catch(error => console.error('Error fetching teachers:', error));
 });
@@ -27,18 +25,20 @@ function initializeFilters(teachers) {
     const locationDropdown = document.getElementById('location');
     const uniqueLocations = new Set();
     teachers.forEach(teacher => {
-        teacher.locations.forEach(location => uniqueLocations.add(location.toLowerCase()));
+        teacher.locations.forEach(location => uniqueLocations.add(location));
     });
-
-    // Add 'Virtual' location if the mode is online or both
-    uniqueLocations.add('virtual');
-
     uniqueLocations.forEach(location => {
         const option = document.createElement('option');
         option.value = location.toLowerCase();
-        option.textContent = location.charAt(0).toUpperCase() + location.slice(1); // Capitalize first letter
+        option.textContent = location.charAt(0).toUpperCase() + location.slice(1).toLowerCase(); // Capitalize the first letter
         locationDropdown.appendChild(option);
     });
+
+    // Add 'virtual' option for online and both modes of teaching
+    const virtualOption = document.createElement('option');
+    virtualOption.value = 'virtual';
+    virtualOption.textContent = 'Virtual';
+    locationDropdown.appendChild(virtualOption);
 }
 
 function setupSearchButton(teachers) {
@@ -52,10 +52,10 @@ function setupSearchButton(teachers) {
             const matchesMode = modeOfTeaching === 'both' || teacherMode === modeOfTeaching || teacherMode === 'both';
 
             const teacherLocations = teacher.locations.map(loc => loc.toLowerCase());
-            const matchesLocation = location === 'both' || (location === 'virtual' && (teacherMode !== 'offline')) || teacherLocations.includes(location);
+            const matchesLocation = location === 'both' || location === 'virtual' && teacherMode !== 'offline' || teacherLocations.includes(location);
 
             const teacherArt = teacher.art.toLowerCase();
-            const matchesArt = art === 'all' || art === teacherArt;
+            const matchesArt = art === 'both' || art === teacherArt;
 
             return matchesMode && matchesLocation && matchesArt;
         });
@@ -100,15 +100,12 @@ function showTeacherDetails(teacher) {
     const teacherPhoto = document.getElementById('teacher-photo');
     const teacherInfo = document.getElementById('teacher-info');
     const contactLink = document.getElementById('contact-link');
-
+    
     teacherPhoto.src = teacher.photo;
-    teacherInfo.innerHTML = `<strong>Name:</strong> ${teacher.name}<br>
-                             <strong>Mode:</strong> ${teacher.mode.charAt(0).toUpperCase() + teacher.mode.slice(1)}<br>
-                             <strong>Locations:</strong> ${teacher.locations.map(location => location.charAt(0).toUpperCase() + location.slice(1)).join(', ')}<br>
-                             <strong>Art:</strong> ${teacher.art.charAt(0).toUpperCase() + teacher.art.slice(1)}`;
-    contactLink.href = `https://wa.me/${teacher.contact}`;
-
-    popup.style.display = 'flex'; // Changed from 'block' to 'flex' to align with CSS
+    teacherInfo.innerHTML = `<b>Name:</b> ${teacher.name}<br><b>Mode:</b> ${teacher.mode}<br><b>Locations:</b> ${teacher.locations.join(', ')}<br><b>Art:</b> ${teacher.art}`;
+    contactLink.href = teacher.contact;
+    
+    popup.style.display = 'block';
 }
 
 document.querySelector('.popup .close').addEventListener('click', () => {
