@@ -20,14 +20,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function initializeFilters(teachers) {
     const locationDropdown = document.getElementById('location');
-    const uniqueLocations = new Set(['Virtual']); // Add 'virtual' by default
+    const uniqueLocations = new Set(['Virtual']); // Capitalize 'Virtual' here
     teachers.forEach(teacher => {
         teacher.locations.forEach(location => uniqueLocations.add(location));
     });
     uniqueLocations.forEach(location => {
         const option = document.createElement('option');
         option.value = location.toLowerCase();
-        option.textContent = location;
+        option.textContent = location.charAt(0).toUpperCase() + location.slice(1); // Capitalize first letter
         locationDropdown.appendChild(option);
     });
 }
@@ -94,9 +94,9 @@ function showTeacherDetails(teacher) {
 
     teacherPhoto.src = teacher.photo;
     teacherInfo.innerHTML = `<strong>Name:</strong> ${teacher.name}<br>
-                             <strong>Mode:</strong> ${teacher.mode}<br>
-                             <strong>Locations:</strong> ${teacher.locations.join(', ')}<br>
-                             <strong>Art:</strong> ${teacher.art}`;
+                             <strong>Mode:</strong> ${teacher.mode.charAt(0).toUpperCase() + teacher.mode.slice(1)}<br>
+                             <strong>Locations:</strong> ${teacher.locations.map(location => location.charAt(0).toUpperCase() + location.slice(1)).join(', ')}<br>
+                             <strong>Art:</strong> ${teacher.art.charAt(0).toUpperCase() + teacher.art.slice(1)}`;
     contactLink.href = `https://wa.me/${teacher.contact}`;
 
     popup.style.display = 'flex'; // Changed from 'block' to 'flex' to align with CSS
