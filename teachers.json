@@ -1,0 +1,17 @@
+[
+        {
+            name: 'Dattatray Bhave',
+            photo: 'dattatray-bhave.jpg',
+            mode: 'Offline',
+            locations: ['Lohegaon'],
+            art: 'Tabla',
+            contact: 'https://wa.me/1234567890'
+        },
+        {
+            photo: 'path-to-photo2.jpg',
+            mode: 'Both',
+            locations: ['Kharadi', 'Wadgaonsheri'],
+            art: 'Kathak',
+            contact: 'https://wa.me/0987654321'
+        }
+    ]

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kala Samanvay</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="kala-10-removebg.png" alt="Kala Samanvay Logo">
+        </div>
+        <div class="contact-info">
+            <p>Contact: <a href="mailto:thekalasamanvay@gmail.com">thekalasamanvay@gmail.com</a></p>
+        </div>
+    </header>
+
+    <main>
+        <h1>Welcome to Kala Samanvay</h1>
+        <section class="description">
+        <h1>About Kala Samanvay</h1>
+            <p>Kala Samanvay is dedicated to making authentic Indian classical art training accessible to all. 
+                We offer a searchable database of genuine classical art teachers affiliated 
+                with <a href="mailto:thekalasamanvay@gmail.com">Akhil Bhartiya Gandharva Mahavidyalaya (ABGMVM) Mandal</a>
+                ensuring quality training across various art forms. Explore our database to find teachers who match your preferences and needs.</p>
+        </section>
+        <section class="contact us">
+        <h1>Contact Us</h1>
+        <p>Please reach out to us to share your expriences and feedback at <a href="mailto:thekalasamanvay@gmail.com">thekalasamanvay@gmail.com</a>. 
+        <p>If you are a teacher and want to have your information displayed on Kala Samanvay, reach out to us at 
+                <a href="mailto:thekalasamanvay@gmail.com">thekalasamanvay@gmail.com</a>. </p>
+        </section>
+        <h2>गुरुम् प्राप्नुयात्</h2>
+        <div class="filters">
+            <label for="mode-of-teaching">Mode of Teaching:</label>
+            <select id="mode-of-teaching">
+                <option value="both">Both</option>
+                <option value="online">Online</option>
+                <option value="offline">Offline</option>
+            </select>
+
+            <label for="location">Location of Offline Classes:</label>
+            <select id="location">
+                <!-- Options will be populated by JavaScript -->
+            </select>
+
+            <label for="art-taught">Art Taught:</label>
+            <select id="art-taught">
+                <option value="both">Both</option>
+                <option value="bharatanatyam">Bharatanatyam</option>
+                <option value="carnatic-vocal">Carnatic Vocal</option>
+                <option value="flute">Flute</option>
+                <option value="harmonium">Harmonium</option>
+                <option value="hindustani-vocal">Hindustani Vocal</option>
+                <option value="kathak">Kathak</option>
+                <option value="sitar">Sitar</option>
+                <option value="tabla">Tabla</option>
+                <option value="violin">Violin</option>
+            </select>
+            <button id="search">Search</button>
+        </div>
+
+        <div class="results">
+            <!-- Teacher entries will be appended here by JavaScript -->
+        </div>
+    </main>
+
+    <div id="teacher-popup" class="popup">
+        <div class="popup-content">
+            <span class="close">&times;</span>
+            <span class="back-arrow">&#8592; Back</span>
+            <img id="teacher-photo" src="" alt="Teacher Photo">
+            <p id="teacher-info"></p>
+            <a id="contact-link" href="" target="_blank">Contact on WhatsApp</a>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
