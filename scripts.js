@@ -20,10 +20,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function initializeFilters(teachers) {
     const locationDropdown = document.getElementById('location');
-    const uniqueLocations = new Set(['Virtual']); // Capitalize 'Virtual' here
+    const uniqueLocations = new Set();
     teachers.forEach(teacher => {
-        teacher.locations.forEach(location => uniqueLocations.add(location));
+        teacher.locations.forEach(location => uniqueLocations.add(location.toLowerCase()));
     });
+
+    // Add 'Virtual' location if the mode is online or both
+    uniqueLocations.add('virtual');
+
     uniqueLocations.forEach(location => {
         const option = document.createElement('option');
         option.value = location.toLowerCase();
@@ -43,7 +47,7 @@ function setupSearchButton(teachers) {
             const matchesMode = modeOfTeaching === 'both' || teacherMode === modeOfTeaching || teacherMode === 'both';
 
             const teacherLocations = teacher.locations.map(loc => loc.toLowerCase());
-            const matchesLocation = location === 'both' || location === 'virtual' && (teacherMode !== 'offline') || teacherLocations.includes(location);
+            const matchesLocation = location === 'both' || (location === 'virtual' && (teacherMode !== 'offline')) || teacherLocations.includes(location);
 
             const teacherArt = teacher.art.toLowerCase();
             const matchesArt = art === 'all' || art === teacherArt;
