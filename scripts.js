@@ -14,9 +14,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
             initializeFilters(data);
             setupSearchButton(data);
-
-            // Initialize Select2
-            $('.location-select').select2();
         })
         .catch(error => console.error('Error fetching teachers:', error));
 });
@@ -30,15 +27,9 @@ function initializeFilters(teachers) {
     uniqueLocations.forEach(location => {
         const option = document.createElement('option');
         option.value = location.toLowerCase();
-        option.textContent = location.charAt(0).toUpperCase() + location.slice(1).toLowerCase(); // Capitalize the first letter
+        option.textContent = location;
         locationDropdown.appendChild(option);
     });
-
-    // Add 'virtual' option for online and both modes of teaching
-    const virtualOption = document.createElement('option');
-    virtualOption.value = 'virtual';
-    virtualOption.textContent = 'Virtual';
-    locationDropdown.appendChild(virtualOption);
 }
 
 function setupSearchButton(teachers) {
@@ -102,7 +93,7 @@ function showTeacherDetails(teacher) {
     const contactLink = document.getElementById('contact-link');
     
     teacherPhoto.src = teacher.photo;
-    teacherInfo.innerHTML = `<b>Name:</b> ${teacher.name}<br><b>Mode:</b> ${teacher.mode}<br><b>Locations:</b> ${teacher.locations.join(', ')}<br><b>Art:</b> ${teacher.art}`;
+    teacherInfo.textContent = `Name: ${teacher.name}\nMode: ${teacher.mode}\nLocations: ${teacher.locations.join(', ')}\nArt: ${teacher.art}`;
     contactLink.href = teacher.contact;
     
     popup.style.display = 'block';
