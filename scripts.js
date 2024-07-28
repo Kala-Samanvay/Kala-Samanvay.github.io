@@ -4,55 +4,56 @@ document.addEventListener("DOMContentLoaded", function () {
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
-            return response.text();  // Read response as text
+            return response.json();  // Parse response as JSON directly
         })
-        .then(text => {
-            console.log("Raw JSON Text:", text);  // Log the raw text to the console
-            return JSON.parse(text);  // Parse the text as JSON
-        })
-        .then(teachers => {
-            console.log("Parsed JSON Data:", teachers);  // Log the parsed JSON data to the console
-            if (!Array.isArray(teachers)) {
+        .then(data => {
+            console.log("Fetched JSON Data:", data);  // Log the fetched JSON data
+            if (!Array.isArray(data)) {
                 throw new Error('Parsed JSON is not an array');
             }
 
-            // Initialize the location dropdown
-            const locationDropdown = document.getElementById('location');
-            const uniqueLocations = new Set();
-            teachers.forEach(teacher => {
-                teacher.locations.forEach(location => uniqueLocations.add(location));
-            });
-            uniqueLocations.forEach(location => {
-                const option = document.createElement('option');
-                option.value = location.toLowerCase();
-                option.textContent = location;
-                locationDropdown.appendChild(option);
-            });
-
-            // Add event listener for the search button
-            document.getElementById('search').addEventListener('click', function () {
-                const modeOfTeaching = document.getElementById('mode-of-teaching').value;
-                const location = document.getElementById('location').value.toLowerCase();
-                const art = document.getElementById('art-taught').value.toLowerCase();
-
-                const filteredTeachers = teachers.filter(teacher => {
-                    const teacherMode = teacher.mode.toLowerCase();
-                    const matchesMode = modeOfTeaching === 'both' || teacherMode === modeOfTeaching || teacherMode === 'both';
-
-                    const teacherLocations = teacher.locations.map(loc => loc.toLowerCase());
-                    const matchesLocation = location === 'both' || location === 'virtual' && teacherMode !== 'offline' || teacherLocations.includes(location);
-
-                    const teacherArt = teacher.art.toLowerCase();
-                    const matchesArt = art === 'both' || art === teacherArt;
-
-                    return matchesMode && matchesLocation && matchesArt;
-                });
-
-                displayTeachers(filteredTeachers);
-            });
+            initializeFilters(data);
+            setupSearchButton(data);
         })
         .catch(error => console.error('Error fetching teachers:', error));
 });
+
+function initializeFilters(teachers) {
+    const locationDropdown = document.getElementById('location');
+    const uniqueLocations = new Set();
+    teachers.forEach(teacher => {
+        teacher.locations.forEach(location => uniqueLocations.add(location));
+    });
+    uniqueLocations.forEach(location => {
+        const option = document.createElement('option');
+        option.value = location.toLowerCase();
+        option.textContent = location;
+        locationDropdown.appendChild(option);
+    });
+}
+
+function setupSearchButton(teachers) {
+    document.getElementById('search').addEventListener('click', function () {
+        const modeOfTeaching = document.getElementById('mode-of-teaching').value.toLowerCase();
+        const location = document.getElementById('location').value.toLowerCase();
+        const art = document.getElementById('art-taught').value.toLowerCase();
+
+        const filteredTeachers = teachers.filter(teacher => {
+            const teacherMode = teacher.mode.toLowerCase();
+            const matchesMode = modeOfTeaching === 'both' || teacherMode === modeOfTeaching || teacherMode === 'both';
+
+            const teacherLocations = teacher.locations.map(loc => loc.toLowerCase());
+            const matchesLocation = location === 'both' || location === 'virtual' && teacherMode !== 'offline' || teacherLocations.includes(location);
+
+            const teacherArt = teacher.art.toLowerCase();
+            const matchesArt = art === 'both' || art === teacherArt;
+
+            return matchesMode && matchesLocation && matchesArt;
+        });
+
+        displayTeachers(filteredTeachers);
+    });
+}
 
 function displayTeachers(teachers) {
     const resultsDiv = document.querySelector('.results');
