@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function initializeFilters(teachers) {
     const locationDropdown = document.getElementById('location');
-    const uniqueLocations = new Set();
+    const uniqueLocations = new Set(['virtual']); // Add 'virtual' by default
     teachers.forEach(teacher => {
         teacher.locations.forEach(location => uniqueLocations.add(location));
     });
@@ -43,7 +43,7 @@ function setupSearchButton(teachers) {
             const matchesMode = modeOfTeaching === 'both' || teacherMode === modeOfTeaching || teacherMode === 'both';
 
             const teacherLocations = teacher.locations.map(loc => loc.toLowerCase());
-            const matchesLocation = location === 'both' || (location === 'virtual' && teacherMode !== 'offline') || teacherLocations.includes(location);
+            const matchesLocation = location === 'both' || location === 'virtual' && (teacherMode !== 'offline') || teacherLocations.includes(location);
 
             const teacherArt = teacher.art.toLowerCase();
             const matchesArt = art === 'all' || art === teacherArt;
@@ -91,11 +91,14 @@ function showTeacherDetails(teacher) {
     const teacherPhoto = document.getElementById('teacher-photo');
     const teacherInfo = document.getElementById('teacher-info');
     const contactLink = document.getElementById('contact-link');
-    
+
     teacherPhoto.src = teacher.photo;
-    teacherInfo.textContent = `Name: ${teacher.name}\nMode: ${teacher.mode}\nLocations: ${teacher.locations.join(', ')}\nArt: ${teacher.art}`;
+    teacherInfo.innerHTML = `<strong>Name:</strong> ${teacher.name}<br>
+                             <strong>Mode:</strong> ${teacher.mode}<br>
+                             <strong>Locations:</strong> ${teacher.locations.join(', ')}<br>
+                             <strong>Art:</strong> ${teacher.art}`;
     contactLink.href = `https://wa.me/${teacher.contact}`;
-    
+
     popup.style.display = 'flex'; // Changed from 'block' to 'flex' to align with CSS
 }
 
