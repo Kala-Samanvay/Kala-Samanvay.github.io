@@ -22,12 +22,16 @@ function initializeFilters(teachers) {
     const locationDropdown = document.getElementById('location');
     const uniqueLocations = new Set();
     teachers.forEach(teacher => {
-        teacher.locations.forEach(location => uniqueLocations.add(location));
+        teacher.locations.forEach(location => uniqueLocations.add(location.toLowerCase()));
     });
+
+    // Add 'Virtual' location if the mode is online or both
+    uniqueLocations.add('virtual');
+
     uniqueLocations.forEach(location => {
         const option = document.createElement('option');
         option.value = location.toLowerCase();
-        option.textContent = location;
+        option.textContent = location.charAt(0).toUpperCase() + location.slice(1); // Capitalize first letter
         locationDropdown.appendChild(option);
     });
 }
@@ -43,10 +47,10 @@ function setupSearchButton(teachers) {
             const matchesMode = modeOfTeaching === 'both' || teacherMode === modeOfTeaching || teacherMode === 'both';
 
             const teacherLocations = teacher.locations.map(loc => loc.toLowerCase());
-            const matchesLocation = location === 'both' || location === 'virtual' && teacherMode !== 'offline' || teacherLocations.includes(location);
+            const matchesLocation = location === 'both' || (location === 'virtual' && (teacherMode !== 'offline')) || teacherLocations.includes(location);
 
             const teacherArt = teacher.art.toLowerCase();
-            const matchesArt = art === 'both' || art === teacherArt;
+            const matchesArt = art === 'all' || art === teacherArt;
 
             return matchesMode && matchesLocation && matchesArt;
         });
@@ -91,12 +95,15 @@ function showTeacherDetails(teacher) {
     const teacherPhoto = document.getElementById('teacher-photo');
     const teacherInfo = document.getElementById('teacher-info');
     const contactLink = document.getElementById('contact-link');
-    
+
     teacherPhoto.src = teacher.photo;
-    teacherInfo.textContent = `Name: ${teacher.name}\nMode: ${teacher.mode}\nLocations: ${teacher.locations.join(', ')}\nArt: ${teacher.art}`;
-    contactLink.href = teacher.contact;
-    
-    popup.style.display = 'block';
+    teacherInfo.innerHTML = `<strong>Name:</strong> ${teacher.name}<br>
+                             <strong>Mode:</strong> ${teacher.mode.charAt(0).toUpperCase() + teacher.mode.slice(1)}<br>
+                             <strong>Locations:</strong> ${teacher.locations.map(location => location.charAt(0).toUpperCase() + location.slice(1)).join(', ')}<br>
+                             <strong>Art:</strong> ${teacher.art.charAt(0).toUpperCase() + teacher.art.slice(1)}`;
+    contactLink.href = `https://wa.me/${teacher.contact}`;
+
+    popup.style.display = 'flex'; // Changed from 'block' to 'flex' to align with CSS
 }
 
 document.querySelector('.popup .close').addEventListener('click', () => {
