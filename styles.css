@@ -88,7 +88,6 @@ main {
 }
 
 /* Ensure popup is centered */
-/* Ensure popup is centered */
 .popup {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
