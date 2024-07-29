@@ -42,17 +42,6 @@ function setupSearchButton(teachers) {
         const location = document.getElementById('location').value.toLowerCase();
         const art = document.getElementById('art-taught').value.toLowerCase();
 
-        const filteredTeachers = teachers.filter(teacher => {
-            const teacherMode = teacher.mode.toLowerCase();
-            const matchesMode = modeOfTeaching === 'both' || teacherMode === modeOfTeaching || teacherMode === 'both';
-
-            const teacherLocations = teacher.locations.map(loc => loc.toLowerCase());
-     function setupSearchButton(teachers) {
-    document.getElementById('search').addEventListener('click', function () {
-        const modeOfTeaching = document.getElementById('mode-of-teaching').value.toLowerCase();
-        const location = document.getElementById('location').value.toLowerCase();
-        const art = document.getElementById('art-taught').value.toLowerCase();
-
         console.log("Filter Values - Mode:", modeOfTeaching, "Location:", location, "Art:", art);
 
         const filteredTeachers = teachers.filter(teacher => {
@@ -63,7 +52,7 @@ function setupSearchButton(teachers) {
             const matchesLocation = location === 'both' || (location === 'virtual' && (teacherMode !== 'offline')) || teacherLocations.includes(location);
 
             const teacherArt = teacher.art.toLowerCase();
-            const matchesArt = art === 'all' || art === teacherArt;
+            const matchesArt = !art || art === teacherArt;
 
             console.log(`Teacher: ${teacher.name}, MatchesMode: ${matchesMode}, MatchesLocation: ${matchesLocation}, MatchesArt: ${matchesArt}`);
 
@@ -74,7 +63,7 @@ function setupSearchButton(teachers) {
         displayTeachers(filteredTeachers);
     });
 }
-            
+
 function displayTeachers(teachers) {
     const resultsDiv = document.querySelector('.results');
     resultsDiv.innerHTML = '';
