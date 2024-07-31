@@ -37,7 +37,7 @@ function initializeFilters(teachers) {
 
     // Initialize Select2 on the location dropdown
     $('#location').select2({
-        placeholder: 'Select a location',
+        placeholder: 'Location',
         allowClear: true
     });
 }
