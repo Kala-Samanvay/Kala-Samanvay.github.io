@@ -81,6 +81,7 @@ main {
 .filters input, .filters select {
     margin-right: 20px;
     padding: 5px;
+    margin-bottom: 20px; /* Add bottom margin for spacing between dropdowns */
 }
 
 .results {
