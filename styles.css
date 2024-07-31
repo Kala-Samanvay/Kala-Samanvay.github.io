@@ -9,52 +9,52 @@ body {
 header {
     background-color: #77162B;
     color: #EE9C26;
-    padding: 10px 20px; /* Adjusted padding for better spacing */
+    padding: 10px 20px;
     display: flex;
-    align-items: center; /* Align items vertically centered */
-    justify-content: center; /* Center all items horizontally */
-    height: 70px; /* Set a fixed height for the header */
+    align-items: center;
+    justify-content: center;
+    height: 70px;
 }
 
 .header-container {
-    display: flex; /* Use flexbox for alignment */
-    align-items: center; /* Center items vertically */
-    justify-content: center; /* Center items horizontally */
-    flex: 1; /* Allow this container to take up available space */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
 }
 
 .logo {
-    margin-right: 20px; /* Add space between logo and contact info */
+    margin-right: 20px;
 }
 
 .logo img {
-    width: auto; /* Maintain the width based on the image's aspect ratio */
-    height: auto; /* Maintain aspect ratio */
-    max-height: 70px; /* Set a maximum height for the logo */
-    object-fit: contain; /* Ensure the image fits without distortion */
+    width: auto;
+    height: auto;
+    max-height: 70px;
+    object-fit: contain;
 }
 
 .contact-info {
-    display: flex; /* Use flexbox for better alignment */
-    align-items: center; /* Center contact info vertically */
+    display: flex;
+    align-items: center;
 }
 
 /* Responsive design */
 @media (max-width: 768px) {
     header {
-        padding: 10px; /* Adjust padding for smaller screens */
-        flex-direction: column; /* Stack elements vertically */
-        align-items: center; /* Center all items */
-        height: auto; /* Allow height to adjust based on content */
+        padding: 10px;
+        flex-direction: column;
+        align-items: center;
+        height: auto;
     }
 
     .logo img {
-        max-height: 50px; /* Adjust for smaller screens */
+        max-height: 50px;
     }
 
     .contact-info {
-        text-align: center; /* Center contact info on smaller screens */
-        margin-top: 10px; /* Add some spacing above the contact info */
+        text-align: center;
+        margin-top: 10px;
     }
 }
 
@@ -71,56 +71,50 @@ main {
 
 .filters {
     display: flex;
-    flex-direction: column; /* Stack filters vertically */
-    margin-bottom: 20px; /* Space below the filters */
-    align-items: center; /* Center the items horizontally */
+    flex-direction: column;
+    margin-bottom: 20px;
+    align-items: center;
 }
 
 .filters > div,
 .filters label,
 .filters select,
 #search {
-    margin-bottom: 10px; /* Space between each element */
+    margin-bottom: 10px;
 }
 
 .filters label {
-    display: block; /* Make labels block elements to stack properly */
-    font-weight: bold; /* Make labels more prominent */
-    margin-bottom: 5px; /* Space between label and input */
-    text-align: center; /* Center the label text */
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    text-align: center;
 }
 
 .filters select {
-    padding: 5px; /* Add padding for better appearance */
-    width: 40%; /* Reduce the width of selects to 40% */
-    margin: 0 auto; /* Center the selects horizontally */
-    display: block; /* Ensure selects behave like block elements */
-    text-align: center; /* Center the text inside select boxes */
-    border-radius: 4px; /* Rounded corners for better aesthetics */
+    padding: 5px;
+    width: 40%;
+    margin: 0 auto;
+    display: block;
+    text-align: center;
+    border-radius: 4px;
 }
 
-/* Increase the space above the location selector */
 .location-selector {
-    margin-top: 20px; /* Adjust the space as needed */
+    margin-top: 20px;
 }
 
-/* Style for the search button */
 #search {
-    padding: 10px 20px; /* Add padding for the button */
-    width: 40%; /* Reduce width of the search button to 40% */
-    margin: 0 auto; /* Center the button horizontally */
-    border-radius: 4px; /* Rounded corners for better aesthetics */
+    padding: 10px 20px;
+    width: 40%;
+    margin: 0 auto;
+    border-radius: 4px;
 }
 
 /* Stack filters vertically on larger screens */
 @media (min-width: 768px) {
     .filters {
-        flex-direction: column; /* Keep filters stacked vertically */
+        flex-direction: column;
     }
-}
-
-.location-selector {
-    margin-top: 20px; /* Increase the space above the location selector */
 }
 
 .art-taught-text {
@@ -131,7 +125,7 @@ main {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 20px; /* Space between teacher entries */
+    gap: 20px;
 }
 
 .teacher-entry {
@@ -167,7 +161,7 @@ main {
 
 .popup-content {
     background-color: #fff;
-    padding: 60px 20px 20px; /* Increased top padding for more space */
+    padding: 60px 20px 20px;
     border-radius: 5px;
     text-align: center;
     position: relative;
@@ -180,7 +174,7 @@ main {
     max-width: 100%;
     max-height: 300px;
     height: auto;
-    margin: 0 auto 20px; /* Center the image and add space below */
+    margin: 0 auto 20px;
     display: block;
     border-radius: 5px;
 }
@@ -188,7 +182,7 @@ main {
 .popup-content .close,
 .popup-content .back-arrow {
     position: absolute;
-    font-size: 20px; /* Adjust font size as needed */
+    font-size: 20px;
     cursor: pointer;
     z-index: 10;
 }
@@ -203,98 +197,84 @@ main {
     left: 20px;
 }
 
-/* Container for displaying multiple teacher entries */
-.results {
-    display: flex;
-    flex-wrap: wrap; /* Allow entries to wrap to the next line */
-    gap: 20px; /* Space between teacher entries */
-    justify-content: center; /* Center the entries horizontally */
-}
-
-/* Container for each teacher entry */
 .teacher {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center items horizontally */
-    margin: 20px; /* Space around each teacher entry */
-    text-align: center; /* Center text in the container */
-    border: 1px solid #ccc; /* Optional: Add a border around each entry */
-    padding: 10px; /* Padding inside the entry */
-    border-radius: 8px; /* Optional: Round corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow */
-    background-color: #fff; /* Background color for each entry */
+    align-items: center;
+    margin: 20px;
+    text-align: center;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
 }
 
-/* Style for the teacher photo */
 .teacher img {
-    width: 100px; /* Adjust size as needed */
-    height: 100px; /* Adjust size as needed */
-    object-fit: cover; /* Ensure the photo fits well */
-    border-radius: 50%; /* Optional: Make the photo circular */
-    margin-bottom: 10px; /* Space between photo and button */
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 10px;
 }
 
-/* Style for the "View Details" button */
 .teacher button {
-    background: linear-gradient(135deg, #77162B, #6f0f20, #551016); /* Gradient with shades of #77162B */
-    color: #EE9C26; /* Text color */
+    background: linear-gradient(135deg, #77162B, #6f0f20, #551016);
+    color: #EE9C26;
     border: none;
-    padding: 6px 12px; /* Smaller padding for a compact button */
-    font-size: 14px; /* Font size for readability */
-    font-family: 'Arial', sans-serif; /* Font family */
-    border-radius: 4px; /* Smaller border radius */
+    padding: 6px 12px;
+    font-size: 14px;
+    font-family: 'Arial', sans-serif;
+    border-radius: 4px;
     cursor: pointer;
-    transition: background 0.3s ease, transform 0.3s ease; /* Smooth transition for background and transform */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    transition: background 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-/* Hover and active states for the button */
 .teacher button:hover {
-    background: linear-gradient(135deg, #77162B, #6f0f20); /* Slightly adjusted gradient on hover */
-    color: #EE9C26; /* Text color remains the same */
-    transform: translateY(-2px); /* Lift the button slightly on hover */
+    background: linear-gradient(135deg, #77162B, #6f0f20);
+    transform: translateY(-2px);
 }
 
 .teacher button:active {
-    background: linear-gradient(135deg, #77162B, #551016); /* Darker gradient on click */
-    color: #EE9C26; /* Text color remains the same */
-    transform: translateY(1px); /* Slightly lower the button on click */
+    background: linear-gradient(135deg, #77162B, #551016);
+    transform: translateY(1px);
 }
 
 /* Override Select2 styles to match button colors */
 .select2-container--default .select2-selection--single {
-    background-color: #77162B; /* Background color */
-    border: 1px solid #77162B; /* Border color */
-    color: #EE9C26; /* Text color */
-    height: 38px; /* Match height with other buttons */
+    background-color: #77162B;
+    border: 1px solid #77162B;
+    color: #EE9C26;
+    height: 38px;
     display: flex;
     align-items: center;
 }
 
 .select2-container--default .select2-selection--single .select2-selection__rendered {
-    color: #EE9C26; /* Text color for selected item */
-    line-height: 38px; /* Center the text vertically */
+    color: #EE9C26;
+    line-height: 38px;
 }
 
 .select2-container--default .select2-selection--single .select2-selection__arrow {
-    height: 38px; /* Match height with other buttons */
-    right: 10px; /* Position the arrow */
+    height: 38px;
+    right: 10px;
 }
 
 .select2-container--default .select2-selection--single .select2-selection__placeholder {
-    color: #EE9C26; /* Placeholder text color */
+    color: #EE9C26;
 }
 
 .select2-dropdown {
-    background-color: #77162B; /* Background color of dropdown */
-    color: #EE9C26; /* Text color in dropdown */
+    background-color: #77162B;
+    color: #EE9C26;
 }
 
 .select2-container--default .select2-results__option {
-    color: #EE9C26; /* Text color for options */
+    color: #EE9C26;
 }
 
 .select2-container--default .select2-results__option--highlighted {
-    background-color: #77162B; /* Background color for highlighted option */
-    color: #EE9C26; /* Text color for highlighted option */
+    background-color: #77162B;
+    color: #EE9C26;
 }
