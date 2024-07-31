@@ -91,8 +91,8 @@ main {
 }
 
 .filters select {
-    padding: 5px; /* Add padding for better appearance */
-    width: 40%; /* Reduce the width of selects to 40% */
+    padding: 5px;
+    width: 250px; /* Set a fixed width for both selects */
     margin: 0 auto; /* Center the selects horizontally */
     display: block; /* Ensure selects behave like block elements */
     text-align: center; /* Center the text inside select boxes */
