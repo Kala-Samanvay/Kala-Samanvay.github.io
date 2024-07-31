@@ -194,24 +194,40 @@ main {
     transform: translateY(1px); /* Slightly lower the button on click */
 }
 
-/* Ensure the Select2 dropdown matches the style of your other buttons */
+/* Override Select2 styles to match button colors */
 .select2-container--default .select2-selection--single {
-    background-color: #77162B;
-    border: none;
-    color: #EE9C26;
-    font-size: 16px;
-    height: 38px; /* Match the height of your other buttons */
+    background-color: #77162B; /* Background color */
+    border: 1px solid #77162B; /* Border color */
+    color: #EE9C26; /* Text color */
+    height: 38px; /* Match height with other buttons */
     display: flex;
     align-items: center;
-    padding-left: 10px;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    color: #EE9C26; /* Text color for selected item */
+    line-height: 38px; /* Center the text vertically */
 }
 
 .select2-container--default .select2-selection--single .select2-selection__arrow {
-    height: 38px; /* Match the height of your other buttons */
-    right: 10px;
+    height: 38px; /* Match height with other buttons */
+    right: 10px; /* Position the arrow */
+}
+
+.select2-container--default .select2-selection--single .select2-selection__placeholder {
+    color: #EE9C26; /* Placeholder text color */
 }
 
 .select2-dropdown {
-    background-color: #77162B;
-    color: #EE9C26;
+    background-color: #77162B; /* Background color of dropdown */
+    color: #EE9C26; /* Text color in dropdown */
+}
+
+.select2-container--default .select2-results__option {
+    color: #EE9C26; /* Text color for options */
+}
+
+.select2-container--default .select2-results__option--highlighted {
+    background-color: #77162B; /* Background color for highlighted option */
+    color: #EE9C26; /* Text color for highlighted option */
 }
