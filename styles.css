@@ -70,21 +70,23 @@ main {
 }
 
 .filters {
-    margin-bottom: 20px;
     display: flex;
-    flex-wrap: wrap; /* Allow filters to wrap */
-    justify-content: center; /* Center filters */
+    flex-direction: column; /* Stack filters vertically */
+    margin-bottom: 20px; /* Space below the filters */
 }
 
 .filters label {
-    margin-right: 10px;
+    margin-bottom: 5px; /* Space between label and input */
 }
 
-.filters input,
 .filters select {
-    margin-right: 20px;
-    padding: 5px;
-    margin-bottom: 20px; /* Add bottom margin for spacing between dropdowns */
+    margin-bottom: 15px; /* Space between each select dropdown */
+    padding: 5px; /* Add padding for better appearance */
+}
+
+#search {
+    align-self: flex-start; /* Align search button to the left */
+    padding: 10px 20px; /* Add padding for the button */
 }
 
 .results {
