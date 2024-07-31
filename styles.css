@@ -13,7 +13,7 @@ header {
     display: flex;
     align-items: center; /* Align items vertically centered */
     justify-content: center; /* Center all items horizontally */
-    height: 80px; /* Set a fixed height for the header */
+    height: 70px; /* Set a fixed height for the header */
 }
 
 .header-container {
@@ -30,7 +30,7 @@ header {
 .logo img {
     width: auto; /* Maintain the width based on the image's aspect ratio */
     height: auto; /* Maintain aspect ratio */
-    max-height: 60px; /* Set a maximum height for the logo */
+    max-height: 70px; /* Set a maximum height for the logo */
     object-fit: contain; /* Ensure the image fits without distortion */
 }
 
