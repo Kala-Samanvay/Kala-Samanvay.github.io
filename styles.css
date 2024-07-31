@@ -75,17 +75,23 @@ main {
     margin-bottom: 20px; /* Space below the filters */
 }
 
+.filters > div,
+.filters label,
+.filters select,
+#search {
+    margin-bottom: 15px; /* Space between each element */
+}
+
 .filters label {
-    margin-bottom: 5px; /* Space between label and input */
+    display: block; /* Make labels block elements to stack properly */
 }
 
 .filters select {
-    margin-bottom: 15px; /* Space between each select dropdown */
     padding: 5px; /* Add padding for better appearance */
+    width: 100%; /* Make selects full width */
 }
 
 #search {
-    align-self: flex-start; /* Align search button to the left */
     padding: 10px 20px; /* Add padding for the button */
 }
 
