@@ -34,12 +34,18 @@ function initializeFilters(teachers) {
         option.textContent = location.charAt(0).toUpperCase() + location.slice(1); // Capitalize first letter
         locationDropdown.appendChild(option);
     });
+
+    // Initialize Select2 on the location dropdown
+    $('#location').select2({
+        placeholder: 'Select a location',
+        allowClear: true
+    });
 }
 
 function setupSearchButton(teachers) {
     document.getElementById('search').addEventListener('click', function () {
         const modeOfTeaching = document.getElementById('mode-of-teaching').value.toLowerCase();
-        const location = document.getElementById('location').value.toLowerCase();
+        const location = $('#location').val().toLowerCase();
         const art = document.getElementById('art-taught').value.toLowerCase();
 
         const filteredTeachers = teachers.filter(teacher => {
