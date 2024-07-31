@@ -1,23 +1,16 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f8f8f8;
-    color: #333;
-}
-
 header {
     background-color: #77162B;
     color: #EE9C26;
-    padding: 5px 10px; /* Reduced padding for a thinner header */
+    padding: 10px 20px; /* Increased padding for a more spacious header */
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 80px; /* Control the header height */
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+    height: auto; /* Adjust height for flexibility */
 }
 
 .logo img {
-    max-height: 220px; /* Adjust this to fit your design */
+    max-height: 50px; /* Set a fixed height for logo on all devices */
     height: auto;     /* Maintain aspect ratio */
     width: auto;      /* Maintain aspect ratio */
     display: block;   /* Ensure block display to control layout */
@@ -27,30 +20,42 @@ header {
     margin: 0;
 }
 
+/* Add space between the location selector and art-taught text */
+.filters {
+    margin-bottom: 20px; /* Space below the filters */
+}
+
+.filters label {
+    margin-right: 10px;
+}
+
+.filters input, .filters select {
+    margin-right: 20px;
+    padding: 5px;
+    margin-bottom: 20px; /* Add bottom margin for spacing between dropdowns */
+}
+
+.location-selector {
+    margin-bottom: 15px; /* Space specifically for the location selector */
+}
+
+.art-taught-text {
+    margin-top: 10px; /* Space between the location selector and art taught text */
+}
+
 /* Responsive design */
 @media (max-width: 768px) {
-    .logo img {
-        max-height: 50px; /* Adjust for smaller screens */
-    }
-
     header {
-        padding: 5px; /* Adjust padding for smaller screens */
+        padding: 10px; /* Adjust padding for smaller screens */
         flex-direction: column; /* Stack elements vertically */
         align-items: flex-start; /* Align left */
-        height: auto; /* Adjust height for flexibility */
     }
 
     .filters {
         flex-direction: column; /* Stack filters vertically */
     }
 
-    .filters label {
-        margin-right: 0; /* Remove margin for labels on mobile */
-        margin-bottom: 5px; /* Add bottom margin for spacing */
-    }
-
     .filters input, .filters select {
-        margin-right: 0; /* Remove right margin on mobile */
         width: 100%; /* Make inputs and selects full width */
         margin-bottom: 10px; /* Add margin for spacing */
         padding: 10px; /* Increase padding for touch targets */
@@ -67,7 +72,7 @@ header {
         max-width: 300px; /* Limit max width */
         margin: 10px 0; /* Vertical spacing between entries */
     }
-
+}
     .popup-content {
         padding: 40px 20px; /* Adjust padding for smaller screens */
         max-width: 90%; /* Keep popup content responsive */
