@@ -75,6 +75,12 @@ main {
     margin-bottom: 20px; /* Space below the filters */
 }
 
+/* Adjust the space between the title and the filters */
+main h1 {
+    margin-bottom: 10px; /* Decrease the distance between title and filters */
+}
+
+/* Ensure all filter elements have appropriate spacing */
 .filters > div,
 .filters label,
 .filters select,
@@ -89,6 +95,13 @@ main {
 .filters select {
     padding: 5px; /* Add padding for better appearance */
     width: 100%; /* Make selects full width */
+}
+
+/* Stack filters vertically on larger screens */
+@media (min-width: 768px) {
+    .filters {
+        flex-direction: column; /* Keep filters stacked vertically */
+    }
 }
 
 #search {
