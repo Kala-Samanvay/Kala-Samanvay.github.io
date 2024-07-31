@@ -193,3 +193,25 @@ main {
     color: #EE9C26; /* Text color remains the same */
     transform: translateY(1px); /* Slightly lower the button on click */
 }
+
+/* Ensure the Select2 dropdown matches the style of your other buttons */
+.select2-container--default .select2-selection--single {
+    background-color: #77162B;
+    border: none;
+    color: #EE9C26;
+    font-size: 16px;
+    height: 38px; /* Match the height of your other buttons */
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    height: 38px; /* Match the height of your other buttons */
+    right: 10px;
+}
+
+.select2-dropdown {
+    background-color: #77162B;
+    color: #EE9C26;
+}
