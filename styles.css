@@ -85,16 +85,28 @@ main h1 {
 .filters label,
 .filters select,
 #search {
-    margin-bottom: 15px; /* Space between each element */
+    margin-bottom: 10px; /* Space between each element */
 }
 
 .filters label {
     display: block; /* Make labels block elements to stack properly */
+    font-weight: bold; /* Make labels more prominent */
+    margin-bottom: 5px; /* Space between label and input */
 }
 
 .filters select {
     padding: 5px; /* Add padding for better appearance */
-    width: 100%; /* Make selects full width */
+    width: 80%; /* Reduce the width of selects */
+    margin: 0 auto; /* Center the selects horizontally */
+    display: block; /* Ensure selects behave like block elements */
+    text-align: center; /* Center the text inside select boxes */
+}
+
+/* Style for the search button */
+#search {
+    padding: 10px 20px; /* Add padding for the button */
+    width: 80%; /* Reduce width */
+    margin: 0 auto; /* Center the button horizontally */
 }
 
 /* Stack filters vertically on larger screens */
@@ -102,10 +114,6 @@ main h1 {
     .filters {
         flex-direction: column; /* Keep filters stacked vertically */
     }
-}
-
-#search {
-    padding: 10px 20px; /* Add padding for the button */
 }
 
 .results {
