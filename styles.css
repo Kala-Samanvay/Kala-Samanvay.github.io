@@ -73,14 +73,9 @@ main {
     display: flex;
     flex-direction: column; /* Stack filters vertically */
     margin-bottom: 20px; /* Space below the filters */
+    align-items: center; /* Center the items horizontally */
 }
 
-/* Adjust the space between the title and the filters */
-main h1 {
-    margin-bottom: 10px; /* Decrease the distance between title and filters */
-}
-
-/* Ensure all filter elements have appropriate spacing */
 .filters > div,
 .filters label,
 .filters select,
@@ -92,21 +87,29 @@ main h1 {
     display: block; /* Make labels block elements to stack properly */
     font-weight: bold; /* Make labels more prominent */
     margin-bottom: 5px; /* Space between label and input */
+    text-align: center; /* Center the label text */
 }
 
 .filters select {
     padding: 5px; /* Add padding for better appearance */
-    width: 80%; /* Reduce the width of selects */
+    width: 40%; /* Reduce the width of selects to 40% */
     margin: 0 auto; /* Center the selects horizontally */
     display: block; /* Ensure selects behave like block elements */
     text-align: center; /* Center the text inside select boxes */
+    border-radius: 4px; /* Rounded corners for better aesthetics */
+}
+
+/* Increase the space above the location selector */
+.location-selector {
+    margin-top: 20px; /* Adjust the space as needed */
 }
 
 /* Style for the search button */
 #search {
     padding: 10px 20px; /* Add padding for the button */
-    width: 80%; /* Reduce width */
+    width: 40%; /* Reduce width of the search button to 40% */
     margin: 0 auto; /* Center the button horizontally */
+    border-radius: 4px; /* Rounded corners for better aesthetics */
 }
 
 /* Stack filters vertically on larger screens */
@@ -114,6 +117,14 @@ main h1 {
     .filters {
         flex-direction: column; /* Keep filters stacked vertically */
     }
+}
+
+.location-selector {
+    margin-top: 20px; /* Increase the space above the location selector */
+}
+
+.art-taught-text {
+    margin-top: 10px;
 }
 
 .results {
