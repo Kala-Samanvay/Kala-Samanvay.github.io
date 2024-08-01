@@ -122,10 +122,6 @@ main {
     margin-top: 10px;
 }
 
-.contact-us {
-    justify-content: center;
-}
-
 .results {
     display: flex;
     flex-wrap: wrap;
