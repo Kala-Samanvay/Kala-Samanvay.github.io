@@ -283,10 +283,10 @@ main {
 /* Adjust Select2 width for mobile devices */
 @media (max-width: 768px) {
     .select2-container--default .select2-selection--single {
-        width: 80%;
+        width: 80% !important;
     }
 
     .select2-container--default .select2-selection--single .select2-selection__arrow {
-        right: 15px;
+        right: 10px !important;
     }
 }
