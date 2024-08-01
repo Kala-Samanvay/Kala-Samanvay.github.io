@@ -279,3 +279,14 @@ main {
     background-color: #77162B;
     color: #EE9C26;
 }
+
+/* Adjust Select2 width for mobile devices */
+@media (max-width: 768px) {
+    .select2-container--default .select2-selection--single {
+        width: 80%;
+    }
+
+    .select2-container--default .select2-selection--single .select2-selection__arrow {
+        right: 15px;
+    }
+}
