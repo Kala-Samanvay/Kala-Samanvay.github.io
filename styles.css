@@ -92,11 +92,11 @@ main {
 
 .filters select {
     padding: 5px;
-    width: 40%;
     margin: 0 auto;
     display: block;
     text-align: center;
     border-radius: 4px;
+    width: 100%;
 }
 
 .location-selector {
@@ -106,9 +106,9 @@ main {
 
 #search {
     padding: 10px 20px;
-    width: 40%;
     margin: 0 auto;
     border-radius: 4px;
+    width: 40%;
 }
 
 /* Stack filters vertically on larger screens */
@@ -247,16 +247,16 @@ main {
     background-color: #77162B;
     border: 1px solid #77162B;
     color: #EE9C26;
-    width: 100% !important;
     display: flex;
     align-items: center;
+    width: 100%;
 }
 
 .select2-container--default .select2-selection--single .select2-selection__rendered {
     color: #EE9C26;
-    width: 100%;
     padding: 0 10px;
     box-sizing: border-box;
+    width: 100%;
 }
 
 .select2-container--default .select2-selection--single .select2-selection__arrow {
@@ -301,5 +301,5 @@ main {
 /* Ensure the container width is 40% */
 .location-selector,
 .filters select {
-    width: 40% !important;
+    width: 40%;
 }
