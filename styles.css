@@ -254,14 +254,14 @@ main {
 
 .select2-container--default .select2-selection--single .select2-selection__rendered {
     color: #EE9C26;
-    width: 90%;
+    width: 100%;
     padding: 0 10px;
     box-sizing: border-box;
 }
 
 .select2-container--default .select2-selection--single .select2-selection__arrow {
-    width: 10%;
-    right: 0;
+    width: 20px;
+    right: 10px;
     height: 100%;
 }
 
@@ -290,16 +290,16 @@ main {
     }
 
     .select2-container--default .select2-selection--single .select2-selection__rendered {
-        width: 90%;
+        width: 100%;
     }
 
     .select2-container--default .select2-selection--single .select2-selection__arrow {
-        width: 10%;
+        width: 20px;
     }
 }
 
 /* Ensure the container width is 40% */
 .location-selector,
 .filters select {
-    width: 40%;
+    width: 40% !important;
 }
